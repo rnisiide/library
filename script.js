@@ -1,6 +1,18 @@
 console.log('I am sentient')
 
 let myLibrary = [];
+const modal = document.getElementById('myModal');
+const modalSpan = document.getElementById('modalSpan');
+const addAuthor = document.querySelector('#author');
+const listAuthor = document.querySelector('.list_author');
+const addTitle = document.querySelector('#title');
+const listTitle = document.querySelector('.list_title');
+const addPages = document.querySelector('#pages');
+const listPages = document.querySelector('.list_pages');
+const addHasread = document.querySelector('#hasread');
+const listHasread = document.querySelector('.list_hasread');
+const removeBook = document.querySelector('.remove');
+const newBook = document.querySelector('#newbook');
 
 
 function Book (title, author, pages, read) {
@@ -19,9 +31,14 @@ function Book (title, author, pages, read) {
 }
 
 
-/* const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 420, false);
-*/
 
+newBook.addEventListener('click', () => {
+  console.log(`New book works!!`)
+  modal.style.display = 'block';
+  modalSpan.onclick = function() {
+    modal.style.display = "none";
+  }
+})
 
 function addBookToLibrary() {
   // do stuff here
