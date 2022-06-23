@@ -1,6 +1,14 @@
 console.log('I am sentient')
 
-let myLibrary = [];
+let myLibrary = [
+  {author: 'Douglas Adams',
+  title: "The ULTIMATE Hitchhiker's Guide to the galaxy",
+  pages: 815,
+  read: true  
+}
+];
+
+
 const modal = document.getElementById('myModal');
 const modalSpan = document.getElementById('modalSpan');
 const addAuthor = document.querySelector('#author');
@@ -13,7 +21,7 @@ const addHasread = document.querySelector('#hasread');
 const listHasread = document.querySelector('.list_hasread');
 const removeBook = document.querySelector('.remove');
 const newBook = document.querySelector('#newbook');
-
+const submit = document.querySelector('.submit');
 
 function Book (title, author, pages, read) {
     this.title = title;
@@ -40,6 +48,8 @@ newBook.addEventListener('click', () => {
   }
 })
 
-function addBookToLibrary() {
-  // do stuff here
-}
+submit.addEventListener('click', () => {
+  myLibrary.push(new Book(addTitle.value, addAuthor.value, addPages.value, addHasread.checked));
+  console.table(myLibrary);
+  modal.style.display = "none";
+})

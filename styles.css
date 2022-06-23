@@ -104,7 +104,7 @@ ul {
     margin: 0;
 }
 
-form li + li {
+ li + li {
   margin-top: 1em;
 }
 
