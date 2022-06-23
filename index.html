@@ -9,43 +9,28 @@
 </head>
 <body>
 
-    <h1>Library project</h1>
+    <h1>Make your own lybrary!!</h1>
 
+<div class="wrapper">
     <button id="newbook">New Book</button>
 
-     
-
-    <div class="wrapper">
-        <div class="list_author">
-            <h2 class="list_author">Author</h2>
-            <div class="content">
-                <p>TEST</p>
-            </div>
-
-        </div>
-        <div class="list_title">
-            <h2 class="list_title"> Title </h2>
-            <div class="content">
-                <p>TEST</p>
-            </div>
-        </div>
-        <div class="list_pages">
-            <h2> Number of pages</h2>
-            <div class="content">
-                <p> TEST</p>
-            </div>
-
-        </div>
-        <div class="list_hasread">
-            <h2>Have you read it?</h2>
-            <div class="content" class="list_hasread"><input type="checkbox" checked></div>
-        </div>
-        <div class="remove">
-            <h2>Remove Item</h2>
-            <div class="content"><button class="remove"> Remove</button></div>
-        </div>
-    </div>
     
+    <table id="table">
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Number of pages</th>
+            <th>Have you read it?</th>
+            <th>Remove</th>
+        </tr>
+        <tr>
+            <td>Douglas Adams</td>
+            <td>"The ULTIMATE Hitchhiker's Guide to the galaxy"</td>
+            <td> 815 </td>
+            <td> true</td>
+            <td> 0 </td>
+        </tr>
+    </table>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -73,12 +58,11 @@
                         <button class="submit" type="submit">Add to library</button>
                         <div id="modalSpan"><span>Close</span></div>
                     </div>
-
                 </ul>    
             </div>
         </div>
     </div>
-
+</div>
     
     <script src="./script.js"></script>
 </body>

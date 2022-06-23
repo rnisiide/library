@@ -10,6 +10,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.wrapper {
+    display: flex;
+}
+
 form {
     align-self: center;
 }
@@ -19,18 +23,6 @@ form {
     width: 100px;
     height: 50px;
     
-}
-
-.wrapper {
-    display: flex;
-    border: double;
-    border-color: black;
-    border-radius: 10px;
-    width: 770px;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 0;
-    align-self: center;
 }
 
 h2 {
@@ -153,4 +145,27 @@ input:focus {
     align-self: center;
     margin-left: 10px;
     font-size: 15px;
+}
+
+#tableheader {
+    display: flex;
+    text-align: center;
+}
+
+table {
+    margin: 20px;
+    align-self: center;
+    border: double;
+    border-collapse: collapse;
+    width: 700px;
+}
+
+th {
+    background-color: green;
+    color: white;
+    padding: 10px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
