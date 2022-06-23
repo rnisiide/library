@@ -158,7 +158,7 @@ table {
     align-self: center;
     border: double;
     border-collapse: collapse;
-    width: 700px;
+    width: auto;
 }
 
 th {
@@ -178,6 +178,7 @@ table tr:nth-child(even) {
     }
 
     table {
-        width: 500px;
+        width: 700px;
 
+}
 }
