@@ -1,17 +1,72 @@
 console.log('I am sentient')
 
-
 let myLibrary = [
   {author: 'Douglas Adams',
   title: "The ULTIMATE Hitchhiker's Guide to the galaxy",
   pages: 815,
-  read: true,
-  remove: 0,  
+  read: false, 
+},
+{author: 'Chibi Jäger',
+title: "Meu ossinho delicioso",
+pages: 222,
+read: true, 
 }];
 
-let headers = [
-  'Author', 'Title', 'Number of pages', 'Have you read it?', 'Remove'
-]
+
+function returnCard(arr) {
+  innerText = '';
+  for (i=0; i < arr.length; i++) {
+    if (arr[i].read == true) {
+    console.log('passing here')
+    innerText += `<div class="books-cards">
+      <div>
+        <div class="book-title">
+          <h4>${arr[i].title}</h4>
+        </div>
+        <div class="book-author">      
+          <p> written by ${arr[i].author}</p>
+        </div>
+        <div class="book-pages">      
+          <p> ${arr[i].pages} pages</p>
+        </div> 
+        <div class="book-read">      
+          <input type="checkbox" name="${arr[i].title}" onclick="changeRead(this.name)" checked>
+            <label id="check-box-${i}" for="${arr[i].title}"> I have read the book</label><br>
+        </div>         
+        <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove: ${arr[i].title}    
+        </button>
+      </div></div>`
+    } else {
+    console.log('passing here too')
+    innerText += `<div class="books-cards">
+      <div>
+        <div class="book-title">
+          <h4>${arr[i].title}</h4>
+        </div>
+        <div class="book-author">      
+          <p> written by ${arr[i].author}</p>
+        </div>
+        <div class="book-pages">      
+          <p> ${arr[i].pages} pages</p>
+        </div> 
+        <div class="book-read">      
+          <input type="checkbox" name="${arr[i].title}" onclick="changeRead(this.name)"  >
+            <label id="check-box-${i}" for="${arr[i].title}"> I haven't read the book</label><br>
+        </div>         
+        <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove: ${arr[i].title}    
+        </button>
+      </div></div>`
+    }} return innerText;
+}
+
+function Book (author, title, pages, read) {
+  this.author = author;
+  this.title = title;    
+  this.pages = pages;
+  this.read = read;
+}
+
+const container = document.getElementById('books-cards-container');
 
 const modal = document.getElementById('myModal');
 const modalSpan = document.getElementById('modalSpan');
@@ -23,18 +78,8 @@ const addPages = document.querySelector('#pages');
 const listPages = document.querySelector('.list_pages');
 const addHasread = document.querySelector('#hasread');
 const listHasread = document.querySelector('.list_hasread');
-const removeBook = document.querySelector('.remove');
 const newBook = document.querySelector('#newbook');
 const submit = document.querySelector('.submit');
-
-
-function Book (author, title, pages, read, remove) {
-  this.author = author;
-  this.title = title;    
-  this.pages = pages;
-  this.read = read;
-  this.remove = ` Remove ${myLibrary.length}`;
-}
 
 
 newBook.addEventListener('click', () => {
@@ -45,10 +90,13 @@ newBook.addEventListener('click', () => {
   }
 })
 
+//this will start the cards
+container.innerHTML = returnCard(myLibrary);
+
 submit.addEventListener('click', () => {
   myLibrary.push(new Book(addAuthor.value, addTitle.value, addPages.value, addHasread.checked));
   
-  updateList();
+  container.innerHTML = returnCard(myLibrary);
   
   console.table(myLibrary);
   modal.style.display = "none";
@@ -58,36 +106,20 @@ submit.addEventListener('click', () => {
   addHasread.checked = false;
 })
 
-const bookTable = document.querySelector('#table')
-
-function updateList() {
-  while (bookTable.firstChild) {
-  bookTable.removeChild(bookTable.firstChild);
-  }
-
-  let headerRow = document.createElement('tr');
-
-  headers.forEach (headerText => {
-    let header = document.createElement('th');
-    let textNode = document.createTextNode(headerText);
-    header.appendChild(textNode);
-    headerRow.appendChild(header);
-  })
-  
-  bookTable.appendChild(headerRow);
+function removeBook(i) {
+  let index = myLibrary.findIndex(p => p.title == i);
+  myLibrary.splice(index,1)
+  container.innerHTML = returnCard(myLibrary);
+} 
 
 
-  myLibrary.forEach(book => {
-    let row = document.createElement('tr');
-    Object.values(book).forEach(text => {
-      let cell = document.createElement('td');
-      let cellText = document.createTextNode(text);
-      cell.classList.add(myLibrary.length - 1);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-    })
-    
-    bookTable.appendChild(row);
-
-  })
+let clicks = 0;
+function changeRead(i) {
+  let index = myLibrary.findIndex(p => p.title == i);
+  let changeText = document.getElementById('check-box-'+index);  
+  if (myLibrary[index].read == true) {myLibrary[index].read = false;
+    changeText.innerHTML = "I haven't read the book";
+  } else {myLibrary[index].read = true;
+    changeText.innerHTML = "I have read the book"}
 }
+
