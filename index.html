@@ -12,10 +12,12 @@
 </head>
 <body>
 
-    <h1>Make your own library!!</h1>
+    <h1>The world's most amazing books!</h1>
 
 <div class="wrapper">
-    <button id="newbook">New Book </button>
+    <div class="menu">
+        <button id="newbook">Add Book + </button>
+    </div>
     
 
 
@@ -26,34 +28,32 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div>
-                <legend>Let's add some books!</legend>
-                <ul>
-                    <li>
-                        <label for="author">Author:</label>
-                        <input type="text" id="author" name="book_author">
-                    </li>
-                    <li>
-                        <label for="title">Title: </label>
-                        <input type="text" id="title" name="book_title">
-                    </li>
-                    <li>
-                        <label for="pages">Number of pages:</label>
-                        <input type="number" id="pages" name="book_pages">
-                    </li>
-                    <li class="hasread">
-                        <label for="hasread">Have you read it?</label>
-                        <input type="checkbox" id="hasread" name="book_read">
-                    </li>
-                    
-                    <div class="buttonWrap">
-                        <button class="submit" type="submit">Add to library</button>
-                        <div id="modalSpan"><span>Close</span></div>
-                    </div>
-                </ul>    
+                <legend class="legend">Let's add some books!</legend>
+                <div class="book_labels">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="book_author">
+                </div>
+                <div class="book_labels">
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" name="book_title">
+                </div>
+                <div class="book_labels">
+                    <label for="pages">Number of pages:</label>
+                    <input type="number" id="pages" name="book_pages">
+                </div>
+                <div class="hasread book_labels">
+                    <input type="checkbox" id="hasread" name="book_read">
+                    <label for="hasread">Have you read it?</label>
+                </div>
+                <div class="buttonWrap">
+                    <button class="submit" type="submit">Add to library</button>
+                    <div id="modalSpan"><span>Close</span></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<div id="footer">Built and designed by <a href="https://github.com/rnisiide"> Ricardo Nisiide</a> | <a href="https://github.com/rnisiide/calculator">Github Source</a></div> 
 
 
     

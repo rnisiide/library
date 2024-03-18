@@ -1,53 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@font-face {
+    font-family: 'digital_7';
+    src: url('./digital_7/digital-7\ \(italic\).ttf');
+}
 
 h1 {
-   text-align: center;
+    padding: 30px;
+    text-align: center;
+    background-color: #363636;
+    color: #ebebeb;
+    margin: 0px;
 }
 
 body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
+    background-color: #ebebeb;
+    height: 100%;
+    margin: 0px;
 }
 
 .wrapper {
+    height: 100vh;
+    margin: 0px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 form {
     align-self: center;
 }
 
+.menu {
+    text-align: center;
+    padding: 10px;
+    background-color: #666666;
+}
+
 #newbook {
     align-self: center;
     width: 100px;
     height: 50px;
+    border-radius: 10px;
     
-}
-
-h2 {
-    border: solid;
-    background-color: #cbcbcb;
-    font-size: 18px;
-    margin: 0;
-    justify-content: center;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    align-items: center;
-}
-
-.list_author {
-    width: 148px;
-}
-.list_title {
-    width: 300px;
 }
 
 p {
     font-size: 20px;
-    text-align: center;
+    text-align: left;
     align-items: center;
 }
 
@@ -73,14 +75,12 @@ p {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    text-align: center;
     margin:auto;
-    background-color:#5058fa;
     position:relative;
     padding: 10px;
+    padding-left: 30px;
     outline:0;
     width:300px;
-    height:300px;
     border-radius: 15px;
     border-style: solid;
     border-color: #a6a6a6;
@@ -91,21 +91,15 @@ legend {
     font-size: 20px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.book_labels {
+    margin-bottom: 10px;
 }
-
- li + li {
-  margin-top: 1em;
-}
-
 
 label {
     display: inline-block;
-    width: 90px;
-    text-align: right;
+    width: 200px;
+    text-align: left;
+    margin-bottom: 5px;
 }
   
   
@@ -117,7 +111,7 @@ label {
     width: 300px;
     box-sizing: border-box;
     border: 1px solid #999;
-  }
+}
   
   
 input:focus {
@@ -125,20 +119,15 @@ input:focus {
 }
   
 .submit {
-    margin-left: 80px;
     font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
 }
   
 
-.content {
-    border:#cbcbcb;
-    border: solid;
-    height: 100px;
-}
-
 .buttonWrap {
     display: flex;
-    padding: 10px;
+    justify-content: space-between;
 }
 
 
@@ -148,37 +137,140 @@ input:focus {
     font-size: 15px;
 }
 
-#tableheader {
-    display: flex;
+
+#footer {
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    background-color: #363636;
+    color: #ebebeb;
 }
 
-table {
-    margin: 20px;
-    align-self: center;
-    border: double;
-    border-collapse: collapse;
-    width: auto;
+
+#books-cards-container {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;   
+    justify-content: flex-start;
+    align-content: flex-start;
+
 }
 
-th {
-    background-color: green;
-    color: white;
+.books-cards {
+    margin: 10px;
     padding: 10px;
+    padding-left: 20px;
+    background-color: #5781ff;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+.book-title {
+    padding-top: 5px;
+    padding-bottom: 5 px;
+    text-align: center;
+    height: 100px;
 }
 
-@media (min-width: 1000px) {
+h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.remove-button {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.book-author {
+}
+
+.book-pages {
+}
+
+.check-box {
+    font-size: 20px;
+    text-align: left;
+    align-items: center;
+
+}
+
+input[type='checkbox'] {
+    margin-right: 5px;
+    accent-color: black;
+}
+  
+
+/*
+function returnCard(arr) {
+  innerText = '';
+  for (i=0; i < arr.length; i++) {
+    if (arr[i].read == true) {
+    innerText += `<div class="books-cards">
+      <div>
+        <div class="book-title">
+          <h4>${arr[i].title}</h4>
+        </div>
+        <div class="book-author">      
+          <p> written by ${arr[i].author}</p>
+        </div>
+        <div class="book-pages">      
+          <p> ${arr[i].pages} pages</p>
+        </div> 
+        <div class="book-read">      
+          <input type="checkbox" name="${arr[i].title}" onclick="changeRead(this.name)" checked>
+          <label class="check-box" id="check-box-${i}" for="${arr[i].title}"> I have read the book</label><br>
+        </div>         
+        <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove this book    
+        </button>
+      </div></div>`
+    } else {
+    innerText += `<div class="books-cards">
+      <div>
+        <div class="book-title">
+          <h4>${arr[i].title}</h4>
+        </div>
+        <div class="book-author">      
+          <p> written by ${arr[i].author}</p>
+        </div>
+        <div class="book-pages">      
+          <p> ${arr[i].pages} pages</p>
+        </div> 
+        <div class="book-read">      
+          <input type="checkbox" name="${arr[i].title}" onclick="changeRead(this.name)"  >
+          <label class="check-box" id="check-box-${i}" for="${arr[i].title}"> I haven't read the book</label><br>
+        </div>         
+        <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove this book 
+        </button>
+      </div></div>`
+    }} return innerText;
+}
+  */
+
+  @media (max-width: 800px) {
 
     .wrapper {
-        flex-direction: row;
+        flex-direction: column;
     }
 
-    table {
-        width: 700px;
+    .books-cards {
+        margin: 10px;
+        border: red;
+        border-style: dotted;
+        width: 100%;
+    }
 
-}
+    #books-cards-container {
+        display: flex;
+        flex-direction: column;    
+        border: blue;
+        border-style: dotted;
+    
+    }
+
+    
 }

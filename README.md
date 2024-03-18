@@ -5,3 +5,5 @@ I have started this project in 2022. After some real life issues and a long hiat
 
 After two years away from coding, it took a while refreshing what I had learned previously and also re-reading the code I had developed so far.
 Some things didn't make sense at first, so I started organizing the ideas again, and wrote some of the functions from scratch so that they would make sense again.
+
+For this first part of the project, I will keep a simple design and with the basic funcionalities.
