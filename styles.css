@@ -259,16 +259,12 @@ function returnCard(arr) {
 
     .books-cards {
         margin: 10px;
-        border: red;
-        border-style: dotted;
         width: 100%;
     }
 
     #books-cards-container {
         display: flex;
         flex-direction: column;    
-        border: blue;
-        border-style: dotted;
     
     }
 
