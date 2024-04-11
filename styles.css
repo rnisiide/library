@@ -205,52 +205,6 @@ input[type='checkbox'] {
 }
   
 
-/*
-function returnCard(arr) {
-  innerText = '';
-  for (i=0; i < arr.length; i++) {
-    if (arr[i].read == true) {
-    innerText += `<div class="books-cards">
-      <div>
-        <div class="book-title">
-          <h4>${arr[i].title}</h4>
-        </div>
-        <div class="book-author">      
-          <p> written by ${arr[i].author}</p>
-        </div>
-        <div class="book-pages">      
-          <p> ${arr[i].pages} pages</p>
-        </div> 
-        <div class="book-read">      
-          <input type="checkbox" name="${arr[i].title}" onclick="changeRead(this.name)" checked>
-          <label class="check-box" id="check-box-${i}" for="${arr[i].title}"> I have read the book</label><br>
-        </div>         
-        <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove this book    
-        </button>
-      </div></div>`
-    } else {
-    innerText += `<div class="books-cards">
-      <div>
-        <div class="book-title">
-          <h4>${arr[i].title}</h4>
-        </div>
-        <div class="book-author">      
-          <p> written by ${arr[i].author}</p>
-        </div>
-        <div class="book-pages">      
-          <p> ${arr[i].pages} pages</p>
-        </div> 
-        <div class="book-read">      
-          <input type="checkbox" name="${arr[i].title}" onclick="changeRead(this.name)"  >
-          <label class="check-box" id="check-box-${i}" for="${arr[i].title}"> I haven't read the book</label><br>
-        </div>         
-        <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove this book 
-        </button>
-      </div></div>`
-    }} return innerText;
-}
-  */
-
   @media (max-width: 800px) {
 
     .wrapper {

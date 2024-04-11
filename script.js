@@ -1,23 +1,25 @@
 console.log('I am sentient')
 
 let myLibrary = [
-  {author: 'Douglas Adams',
-  title: "The ULTIMATE Hitchhiker's Guide to the galaxy",
-  pages: 815,
-  read: false, 
-},
-{author: 'Chibi Jäger',
-title: "Meu ossinho delicioso",
-pages: 222,
-read: true, 
-}];
+  {
+    author: 'Douglas Adams',
+    title: "The ULTIMATE Hitchhiker's Guide to the galaxy",
+    pages: 815,
+    read: false,
+  },
+  {
+    author: 'Chibi Jäger',
+    title: "Meu ossinho delicioso",
+    pages: 222,
+    read: true,
+  }];
 
 
 function returnCard(arr) {
   innerText = '';
-  for (i=0; i < arr.length; i++) {
+  for (i = 0; i < arr.length; i++) {
     if (arr[i].read == true) {
-    innerText += `<div class="books-cards">
+      innerText += `<div class="books-cards">
       <div>
         <div class="book-title">
           <h4>${arr[i].title}</h4>
@@ -36,7 +38,7 @@ function returnCard(arr) {
         </button>
       </div></div>`
     } else {
-    innerText += `<div class="books-cards">
+      innerText += `<div class="books-cards">
       <div>
         <div class="book-title">
           <h4>${arr[i].title}</h4>
@@ -54,12 +56,13 @@ function returnCard(arr) {
         <button class="remove-button" value="${arr[i].title}" onclick="removeBook(this.value)"> Remove this book 
         </button>
       </div></div>`
-    }} return innerText;
+    }
+  } return innerText;
 }
 
-function Book (author, title, pages, read) {
+function Book(author, title, pages, read) {
   this.author = author;
-  this.title = title;    
+  this.title = title;
   this.pages = pages;
   this.read = read;
 }
@@ -83,7 +86,7 @@ const submit = document.querySelector('.submit');
 newBook.addEventListener('click', () => {
   console.log(`New book works!!`)
   modal.style.display = 'block';
-  modalSpan.onclick = function() {
+  modalSpan.onclick = function () {
     modal.style.display = "none";
   }
 })
@@ -93,10 +96,10 @@ container.innerHTML = returnCard(myLibrary);
 
 
 submit.addEventListener('click', () => {
-  myLibrary.push(new Book(addAuthor.value, addTitle.value, addPages.value, addHasread.checked));
-  
+  myLibrary.push(new Book(addAuthor.value.toString(), addTitle.value.toString(), addPages.value, addHasread.checked));
+
   container.innerHTML = returnCard(myLibrary);
-  
+
   console.table(myLibrary);
   modal.style.display = "none";
   addTitle.value = '';
@@ -107,18 +110,21 @@ submit.addEventListener('click', () => {
 
 function removeBook(i) {
   let index = myLibrary.findIndex(p => p.title == i);
-  myLibrary.splice(index,1)
+  myLibrary.splice(index, 1)
   container.innerHTML = returnCard(myLibrary);
-} 
+}
 
 
 let clicks = 0;
 function changeRead(i) {
   let index = myLibrary.findIndex(p => p.title == i);
-  let changeText = document.getElementById('check-box-'+index);  
-  if (myLibrary[index].read == true) {myLibrary[index].read = false;
+  let changeText = document.getElementById('check-box-' + index);
+  if (myLibrary[index].read == true) {
+    myLibrary[index].read = false;
     changeText.innerHTML = "I haven't read the book";
-  } else {myLibrary[index].read = true;
-    changeText.innerHTML = "I have read the book"}
+  } else {
+    myLibrary[index].read = true;
+    changeText.innerHTML = "I have read the book"
+  }
 }
 
