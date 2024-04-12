@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @font-face {
     font-family: 'digital_7';
     src: url('./digital_7/digital-7\ \(italic\).ttf');
@@ -44,7 +45,7 @@ form {
     width: 100px;
     height: 50px;
     border-radius: 10px;
-    
+
 }
 
 p {
@@ -56,31 +57,31 @@ p {
 
 
 .modal {
-    z-index:3;
-    display:none;
-    padding-top:100px;
-    position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    overflow:auto;
-    background-color:rgb(0,0,0);
-    background-color:rgba(0,0,0,0.4)
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4)
 }
 
 
 
-.modal-content{
+.modal-content {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    margin:auto;
-    position:relative;
+    margin: auto;
+    position: relative;
     padding: 10px;
     padding-left: 30px;
-    outline:0;
-    width:300px;
+    outline: 0;
+    width: 300px;
     border-radius: 15px;
     border-style: solid;
     border-color: #a6a6a6;
@@ -101,29 +102,30 @@ label {
     text-align: left;
     margin-bottom: 5px;
 }
-  
-  
+
+
 #author,
 #title,
 #pages,
-#hasread, {
-    font: 1em sans-serif;
-    width: 300px;
-    box-sizing: border-box;
-    border: 1px solid #999;
+#hasread,
+{
+font: 1em sans-serif;
+width: 300px;
+box-sizing: border-box;
+border: 1px solid #999;
 }
-  
-  
+
+
 input:focus {
     border-color: #000;
 }
-  
+
 .submit {
     font-size: 20px;
     border-radius: 10px;
     padding: 10px;
 }
-  
+
 
 .buttonWrap {
     display: flex;
@@ -152,8 +154,8 @@ input:focus {
 
 #books-cards-container {
     display: flex;
-    flex-direction: row; 
-    flex-wrap: wrap;   
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
 
@@ -186,11 +188,9 @@ h4 {
     border-radius: 10px;
 }
 
-.book-author {
-}
+.book-author {}
 
-.book-pages {
-}
+.book-pages {}
 
 .check-box {
     font-size: 20px;
@@ -203,9 +203,17 @@ input[type='checkbox'] {
     margin-right: 5px;
     accent-color: black;
 }
-  
 
-  @media (max-width: 800px) {
+
+
+a {
+    color: #ebebeb;
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 800px) {
 
     .wrapper {
         flex-direction: column;
@@ -218,9 +226,9 @@ input[type='checkbox'] {
 
     #books-cards-container {
         display: flex;
-        flex-direction: column;    
-    
+        flex-direction: column;
+
     }
 
-    
+
 }
